@@ -1,17 +1,37 @@
 # UNet Semantic Segmentation for Foreground Background Suppression
 
 ## Overview
-This project implements a U-Net based model for foreground segmentation and background suppression, developed as part of the Comp-5421 Deep Learning course assignment. The goal is to separate human figures (foreground) from the background in portrait images using semantic segmentation techniques. The model is built using TensorFlow and Keras in Google Colab.
+This project implements a UNet-based convolutional neural network for semantic segmentation, specifically to segment human figures from grayscale images. It explores data preparation, model architecture variations, regularization techniques (e.g., data augmentation, dropout, early stopping), and performance evaluation on a dataset of 290 images with corresponding binary masks.
+The work is conducted in Google Colab using TensorFlow and Keras, focusing on handling image datasets, building encoder-decoder models, and analyzing hyperparameters for improved generalization.
 
-Key features:
-- Dataset curation including loading, corruption checks, and splitting.
-- U-Net model with convolutional layers, batch normalization, dropout, and upsampling.
-- Experiments with attribute and model regularization.
-- Evaluation through performance metrics and visualizations.
+## Key Components
+Dataset Curation: Loading images and masks from Google Drive, checking for corruption, resizing to 256x256, splitting into train/test sets, and visualization.
+Model Building: Development of UNet architectures (encoder with convolutions/max-pooling, decoder with upsampling/transpose convolutions), compilation with Adam optimizer, and training with binary cross-entropy loss.
+Regularization & Experiments: Incorporation of data augmentation (via ImageDataGenerator), early stopping, dropout layers, and learning rate adjustments to mitigate overfitting.
+Evaluation: Assessment of model performance through accuracy, loss curves, and qualitative segmentation outputs.
 
+## Tools & Libraries
+Python 3 with TensorFlow/Keras for model building
+NumPy, OpenCV for array operations and image processing
+Matplotlib for visualizations
+ImageDataGenerator for augmentation
+Google Colab with GPU support
+
+## Dataset
 The project uses the Human Segmentation Dataset with 290 training images and corresponding masks.
 Link: https://github.com/VikramShenoy97/Human-Segmentation-Dataset
 
-## Model Architecture
-The U-Net model is designed for pixel-level segmentation. It includes an encoder for feature extraction (convolutions, max pooling) and a decoder for upsampling with skip connections to preserve spatial details. Layers used: Conv2D, MaxPool2D, Dropout, BatchNormalization, UpSampling2D, Conv2DTranspose. Optimizer: Adam. Loss: Binary Cross-Entropy.
-<image-card alt="Model" src="images/model.png" ></image-card>
+## Main Learnings
+UNet is effective for semantic segmentation tasks with limited data.
+Data augmentation and early stopping significantly help in reducing overfitting.
+Hyperparameter tuning (e.g., learning rate, dropout) is crucial for model convergence and performance.
+
+## Results
+1. Accuracy and Loss without augmentation and callback
+   <image-card alt="Model" src="images/accuracy Without Augmentation And Callback.png" ></image-card>
+2. Accuracy and Loss without early stopping
+   <image-card alt="Model" src="images/accuracy Without Augmentation And Callback.png" ></image-card>
+3. Accuracy and Loss with early stopping and data augmentation
+   <image-card alt="Model" src="images/accuracy Without Augmentation And Callback.png" ></image-card>
+
+
