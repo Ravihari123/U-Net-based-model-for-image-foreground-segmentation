@@ -14,3 +14,4 @@ Link: https://github.com/VikramShenoy97/Human-Segmentation-Dataset
 
 ## Model Architecture
 The U-Net model is designed for pixel-level segmentation. It includes an encoder for feature extraction (convolutions, max pooling) and a decoder for upsampling with skip connections to preserve spatial details. Layers used: Conv2D, MaxPool2D, Dropout, BatchNormalization, UpSampling2D, Conv2DTranspose. Optimizer: Adam. Loss: Binary Cross-Entropy.
+<image-card alt="Model" src="images/model.png" ></image-card>
